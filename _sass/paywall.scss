@@ -1,0 +1,18 @@
+[data-paywall-logged-in],
+[data-paywall-anonymous] {
+  display: none;
+}
+
+.primary-button {
+  display: block;
+  width: 375px;
+  margin-bottom: 15px;
+  height: 40px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-style: solid;
+  border-width: 1px;
+  padding: 1px 7px 2px;
+}

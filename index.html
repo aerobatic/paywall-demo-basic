@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<div class="home">
+  <h1>Premium learning content</h1>
+  <p>This site is a demonstration Jekyll site that showcases how to build a membership based site that requires a paid subscription to access premium content. There is both free lesson content that is available to anyone, and premium lesson content that requires membership.</p>
+
+  <!--
+  Content in the /free-lessons/* directory is outside of the paywalled section of the site, so it
+  can be accessed by the general public.
+  -->
+  {% assign free_lessons = site.pages | where: "free_lesson", true | sort: "title" %}
+  <h2>Free Lessons</h2>
+  <ul class="post-list">
+    {% for lesson in free_lessons %}
+      <li>
+        <h3>
+          <a class="post-link" href="{{ lesson.url | relative_url }}">
+            {{ lesson.title | escape }}
+          </a>
+        </h3>
+        <p>{{ lesson.description }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h2>Premium Lessons</h2>  
+  <p>Upon clicking any of the premium lesson links below, if the user is not yet logged-in, they will first be prompted to register. After registering they will be presented with a link to purchase a subscription.</p>
+  
+  <!--
+    Any page nested within the /members/* directory requires the user to
+    be both logged-in and have the "subscriber" role.
+  -->
+  {% assign premium_lessons = site.pages | where: "premium_lesson", true | sort: "title" %}
+  <ul class="post-list">
+    {% for lesson in premium_lessons %}
+      <li>
+        <h3>
+          <a class="post-link" href="{{ lesson.url | relative_url }}">
+            {{ lesson.title | escape }}
+          </a>
+        </h3>
+        <p>{{ lesson.description }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

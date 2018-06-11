@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<div class="home">
+  <p>
+    This is the members-only area of the site. Users must be logged-in via Auth0 to reach this point. They don't, however necessarily have a paid subscription yet if the paid content is nested deeper.
+  </p>
+
+  <h1>Premium lessons</h1>
+  
+  <ul class="post-list">
+  {% assign premium_lessons = site.pages | where: "premium_lesson", true | sort: "title" %}
+  {% for lesson in premium_lessons %}
+    <li>
+      <h3>
+        <a class="post-link" href="{{ lesson.url | relative_url }}">
+          {{ lesson.title | escape }}
+        </a>
+      </h3>
+      <p>{{ lesson.description }}</p>
+    </li>
+  {% endfor %}
+</div>

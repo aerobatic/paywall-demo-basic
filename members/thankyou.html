@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<!--
+  This page will be called with the following query parameters:
+  plan_id - the Chargebee Plan ID, i.e. "premium-lesson-1" that the user just subscribed to
+  plan_name - the Chargebee Plan name, i.e. "Premium Lesson 1"
+  subscription_id - not that important, but in case you want to display for the customer's own reference
+  return_url - the url to the premium content that the customer just paid to access
+-->
+<div class="home">
+  <h1>Thank you for subscribing!</h1>
+
+  <div>
+    Subscription plan: <strong data-paywall-thankyou-plan-id></strong>
+  </div>
+  <div>
+    Subscription id: <strong data-paywall-thankyou-subscription-id></strong>
+  </div>
+    
+  <div style="margin-top: 40px;">
+    <a class="primary-button" data-paywall-thankyou-return-url>Click here to access your premium lesson</a>
+  </div>
+
+  <script id="thankyou_template" type="x-tmpl-mustache">
+    <div>
+      Subscription plan: <strong><% plan_id %></strong>
+    </div>
+    <div>
+      Subscription id: <strong><% subscription_id %></strong>
+    </div>
+    
+    <div style="margin-top: 40px;">
+      <a class="primary-button" href="<% return_url %>">Click here to access your premium lesson</a>
+    </div>
+  </script>
+  <div id="thankyou_content"></div>
+</div>
