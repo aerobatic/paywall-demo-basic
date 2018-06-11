@@ -6,6 +6,7 @@ plugins:
   - name: client-config
     options:
       chargebeeSiteName: $CHARGEBEE_SITE_NAME
+
   - name: paywall
     path: /paywall
     options:
@@ -21,22 +22,24 @@ plugins:
         apiKey: $CHARGEBEE_API_KEY
         webhookUser: aerobatic-webhook
         webhookPassword: $CHARGEBEE_WEBHOOK_PASSWORD
+
   - name: auth0
     path: /members
     options:
       clientId: $AUTH0_CLIENT_ID
       clientSecret: $AUTH0_CLIENT_SECRET
       tenant: aero-demo
+
   - name: authorized
     path: /members
     options:
       notAuthorizedPage: /members/subscribe.html
       roles:
-        - paid-subscriber
+        - all-access-pass
 
   - name: custom-errors
-      options:
-        errors:
-          404: 404.html
+    options:
+      errors:
+        404: 404.html
 
   - name: webpage
