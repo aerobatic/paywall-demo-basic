@@ -8,4 +8,6 @@ To make the integration as easy as possible, the demo makes use of the [paywall.
 
 All webpages nested within the `/members` directory require a paid subscription to access.
 
+<img src="https://www.aerobatic.com/media/docs/paywall/paywall-plugin-integration.png" />
+
 For a more advanced demo with multiple subscription plans for accessing different sets of content, see the [advanced paywall demo](https://github.com/aerobatic/paywall-demo-advanced).
