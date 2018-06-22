@@ -2,6 +2,17 @@ id: fa85447e-3b55-4643-bbb5-f75f5e51675d
 deploy:
   ignore: []
   directory: _site
+
+auth0:
+  clientId: $AUTH0_CLIENT_ID
+  clientSecret: $AUTH0_CLIENT_SECRET
+  tenant: aero-demo
+
+  # Section for the Authorization Extension
+  authorization:
+    audience: 'urn:auth0-authz-api'
+    apiUrl: 'https://aero-demo.us.webtask.io/adf6e2f2b84784b57522e3b19dfc9201/api'
+
 plugins:
   - name: client-config
     options:
@@ -11,12 +22,6 @@ plugins:
     path: /paywall
     options:
       thankYouPage: members/thankyou.html
-      auth0:
-        audience: 'urn:auth0-authz-api'
-        clientId: $AUTH0_CLIENT_ID
-        clientSecret: $AUTH0_CLIENT_SECRET
-        tenant: aero-demo
-        apiUrl: 'https://aero-demo.us.webtask.io/adf6e2f2b84784b57522e3b19dfc9201/api'
       chargebee:
         siteName: $CHARGEBEE_SITE_NAME
         apiKey: $CHARGEBEE_API_KEY
@@ -25,11 +30,8 @@ plugins:
 
   - name: auth0
     path: /members
-    options:
-      clientId: $AUTH0_CLIENT_ID
-      clientSecret: $AUTH0_CLIENT_SECRET
-      tenant: aero-demo
-
+    options: {}
+    
   - name: authorized
     path: /members
     options:
